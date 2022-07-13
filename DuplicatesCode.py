@@ -1,9 +1,10 @@
 # Necessary Import Statements
 import pandas as pd
 import numpy as np
+import csv
 
 
-df = pd.read_csv('PS_2022.07.04_13.35.57 - PS_2022.07.04_13.35.57.csv.csv', low_memory=False)
+df = pd.read_csv('dataset.csv', low_memory=False)
 nasa = df[['rowid', 'pl_name','hostname','pl_letter','hd_name','hip_name','tic_id', 
              'discoverymethod', 'disc_year', 'pl_controv_flag', 'pl_orbeccen', 'pl_rade',
             'st_spectype', 'pl_dens', 'pl_radj', 'pl_massj', 'pl_orbsmax', 'pl_ratdor', 
@@ -17,7 +18,7 @@ store = pd.DataFrame(columns=list(nasa.columns))
 sort = pd.DataFrame(columns=list(nasa.columns))
 
 # To store the final Deduped planet
-final_planet = pd.DataFrame(data, columns=list(nasa.columns))
+final_planet = pd.DataFrame(df, columns=list(nasa.columns))
 
 # A dataframe to store all the deduped planets
 exo_deduped = pd.DataFrame(columns=list(nasa.columns))
