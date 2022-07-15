@@ -1,0 +1,15 @@
+> exo <- 
++   readXL("C:/Users/Robert/Temp/STEM/ASDRP/Exoplanet/planets_2019.06.06_15.41.16.xlsx",
++    rownames=FALSE, header=TRUE, na="", sheet="planets_2019.06.06_15.41.16", 
++   stringsAsFactors=TRUE)
+
+> with(exo, Hist(gaia_dist, scale="frequency", breaks="Sturges", 
++   col="darkgray"))
+
+> with(exo, Dotplot(gaia_gmag, bin=FALSE))
+
+> with(exo, Dotplot(pl_bmasse, bin=FALSE))
+
+> with(exo, Hist(pl_bmasse, scale="frequency", breaks="Sturges", 
++   col="darkgray"))
+

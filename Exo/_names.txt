@@ -1,0 +1,109 @@
+# This file was produced by the NASA Exoplanet Archive  http://exoplanetarchive.ipac.caltech.edu
+# Tue Mar 10 08:10:28 2020
+#
+# User ID:         robert.downing
+#
+# CONSTRAINT:  where (immodeldef =1)
+#
+# COLUMN plntname:       Planet Name
+# COLUMN ra_str:         RA [sexagesimal]
+# COLUMN ra:             RA [deg]
+# COLUMN dec_str:        Dec [sexagesimal]
+# COLUMN dec:            Dec [deg]
+# COLUMN imdelthmag:     Delta mag H-band (planet-host) [mag]
+# COLUMN imdelthmagerr:  Delta mag H-band (planet-host) Unc. [mag]
+# COLUMN imdelthmaglim:  Delta mag H-band (planet-host) Limit Flag
+# COLUMN imdeltjmag:     Delta mag J-band (planet-host) [mag]
+# COLUMN imdeltjmagerr:  Delta mag J-band (planet-host) Unc. [mag]
+# COLUMN imdeltjmaglim:  Delta mag J-band (planet-host) Limit Flag
+# COLUMN imdeltkmag:     Delta mag K-band (planet-host) [mag]
+# COLUMN imdeltkmagerr:  Delta mag K-band (planet-host) Unc. [mag]
+# COLUMN imdeltkmaglim:  Delta mag K-band (planet-host) Limit Flag
+# COLUMN imdeltlpmag:    Delta mag Lp-band (planet-host) [mag]
+# COLUMN imdeltlpmagerr: Delta mag Lp-band (planet-host) Unc. [mag]
+# COLUMN imdeltlpmaglim: Delta mag Lp-band (planet-host) Limit Flag
+# COLUMN imangsep:       Projected separation star-planet [arcsec]
+# COLUMN imangseperr1:   Projected separation star-planet Upper Unc. [arcsec]
+# COLUMN imangseperr2:   Projected separation star-planet Lower Unc. [arcsec]
+# COLUMN imangseplim:    Projected separation star-planet Limit Flag
+# COLUMN imsep:          Projected separation star-planet [au]
+# COLUMN imseperr1:      Projected separation star-planet Upper Unc. [au]
+# COLUMN imseperr2:      Projected separation star-planet Lower Unc. [au]
+# COLUMN imseplim:       Projected separation star-planet Limit Flag
+# COLUMN imtruesep:      True separation star-planet [au]
+# COLUMN imtrueseperr1:  True separation star-planet Upper Unc. [au]
+# COLUMN imtrueseperr2:  True separation star-planet Lower Unc. [au]
+# COLUMN imtrueseplim:   True separation star-planet Limit Flag
+# COLUMN impa:           Position angle star-planet [deg]
+# COLUMN impaerr1:       Position angle star-planet Upper Unc. [deg]
+# COLUMN impaerr2:       Position angle star-planet Lower Unc. [deg]
+# COLUMN impalim:        Position angle star-planet Limit Flag
+# COLUMN imdist:         Distance [pc]
+# COLUMN imdisterr1:     Distance Upper Unc. [pc]
+# COLUMN imdisterr2:     Distance Lower Unc. [pc]
+# COLUMN imdistlim:      Distance Limit Flag
+# COLUMN imtelescope:    Telescope
+# COLUMN iminstrument:   Instrument
+# COLUMN imdateobs:      Date Obs [UT]
+# COLUMN imcluster:      Cluster or group membership of host
+# COLUMN imreflink:      Reference
+# COLUMN imdisk:         Circumstellar Disk Detected?
+# COLUMN imcorona:       Coronagraph Used?
+# COLUMN imifu:          IFU Used?
+# COLUMN ns:             Number of Stars
+# COLUMN glon:           Galactic Longitude [deg]
+# COLUMN glat:           Galactic Latitude [deg]
+# COLUMN imjmag:         Stellar Magnitude J-band [mag]
+# COLUMN imjmagerr:      Stellar Magnitude J-band Unc. [mag]
+# COLUMN imjmaglim:      Stellar Magnitude J-band Limit Flag
+# COLUMN imhmag:         Stellar Magnitude H-band [mag]
+# COLUMN imhmagerr:      Stellar Magnitude H-band Unc. [mag]
+# COLUMN imhmaglim:      Stellar Magnitude H-band Limit Flag
+# COLUMN imkmag:         Stellar Magnitude K-band [mag]
+# COLUMN imkmagerr:      Stellar Magnitude K-band Unc. [mag]
+# COLUMN imkmaglim:      Stellar Magnitude K-band Limit Flag
+# COLUMN imlpmag:        Stellar Magnitude Lp-band [mag]
+# COLUMN imlpmagerr:     Stellar Magnitude Lp-band Unc. [mag]
+# COLUMN imlpmaglim:     Stellar Magnitude Lp-band Limit Flag
+# COLUMN implnjmag:      Planet Magnitude J-band [mag]
+# COLUMN implnjmagerr:   Planet Magnitude J-band Unc. [mag]
+# COLUMN implnjmaglim:   Planet Magnitude J-band Limit Flag
+# COLUMN implnhmag:      Planet Magnitude H-band [mag]
+# COLUMN implnhmagerr:   Planet Magnitude H-band Unc. [mag]
+# COLUMN implnhmaglim:   Planet Magnitude H-band Limit Flag
+# COLUMN implnkmag:      Planet Magnitude K-band [mag]
+# COLUMN implnkmagerr:   Planet Magnitude K-band Unc. [mag]
+# COLUMN implnkmaglim:   Planet Magnitude K-band Limit Flag
+# COLUMN implnlpmag:     Planet Magnitude Lp-band [mag]
+# COLUMN implnlpmagerr:  Planet Magnitude Lp-band Unc. [mag]
+# COLUMN implnlpmaglim:  Planet Magnitude Lp-band Limit Flag
+# COLUMN imstype:        Stellar Spectral Type
+# COLUMN immass:         Stellar Mass [solar mass]
+# COLUMN immasserr1:     Stellar Mass Upper Unc. [solar mass]
+# COLUMN immasserr2:     Stellar Mass Lower Unc. [solar mass]
+# COLUMN immasslim:      Stellar Mass Limit Flag
+# COLUMN image:          Stellar Age [My]
+# COLUMN imageerr1:      Stellar Age Upper Unc. [My]
+# COLUMN imageerr2:      Stellar Age Lower Unc. [My]
+# COLUMN imagelim:       Stellar Age Limit Flag
+# COLUMN imlum:          Stellar Luminosity [solar luminosity]
+# COLUMN imlumerr1:      Stellar Luminosity Upper Unc. [solar luminosity]
+# COLUMN imlumerr2:      Stellar Luminosity Lower Unc. [solar luminosity]
+# COLUMN imlumlim:       Stellar Luminosity Limit Flag
+# COLUMN implmass:       Planet Mass [Jupiter mass]
+# COLUMN implmasserr1:   Planet Mass Upper Unc. [Jupiter mass]
+# COLUMN implmasserr2:   Planet Mass Lower Unc. [Jupiter mass]
+# COLUMN implmasslim:    Planet Mass Limit Flag
+# COLUMN implstype:      Planet Spectral Type
+# COLUMN impltemp:       Planet Temperature [K]
+# COLUMN impltemperr1:   Planet Temperature Upper Unc. [K]
+# COLUMN impltemperr2:   Planet Temperature Lower Unc. [K]
+# COLUMN impltemplim:    Planet Temperature Limit Flag
+# COLUMN implradius:     Planet Radius [Jupiter radius]
+# COLUMN implradiuserr1: Planet Radius Upper Unc. [Jupiter radius]
+# COLUMN implradiuserr2: Planet Radius Lower Unc. [Jupiter radius]
+# COLUMN implradiuslim:  Planet Radius Limit Flag
+# COLUMN immodel:        Model Description
+# COLUMN immodeldef:     Default Model
+# COLUMN imnotes:        Notes
+#

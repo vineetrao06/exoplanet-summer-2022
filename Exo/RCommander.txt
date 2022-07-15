@@ -1,0 +1,204 @@
+
+> library(abind, pos=16)
+
+> library(e1071, pos=17)
+
+> numSummary(planets[,"pl_orbper", drop=FALSE], statistics=c("mean", "sd", "IQR", 
++   "quantiles"), quantiles=c(0,.25,.5,.75,1))
+     mean       sd      IQR         0%      25%      50%      75%    100%    n  NA
+ 2116.647 114548.7 37.34506 0.09070629 4.461705 11.80101 41.80677 7300000 4064 133
+
+> numSummary(planets[,"pl_orbper", drop=FALSE], statistics=c("mean", "sd", "se(mean)", "IQR", 
++   "quantiles", "cv"), quantiles=c(0,.25,.5,.75,1))
+     mean       sd se(mean)      IQR       cv         0%      25%      50%      75%    100%
+ 2116.647 114548.7 1796.857 37.34506 54.11802 0.09070629 4.461705 11.80101 41.80677 7300000
+    n  NA
+ 4064 133
+
+> numSummary(planets[,"pl_orbper", drop=FALSE], statistics=c("mean", "sd", "se(mean)", "IQR", 
++   "quantiles", "cv"), quantiles=c(0,.25,.5,.75,1))
+     mean       sd se(mean)      IQR       cv         0%      25%      50%      75%    100%
+ 2116.647 114548.7 1796.857 37.34506 54.11802 0.09070629 4.461705 11.80101 41.80677 7300000
+    n  NA
+ 4064 133
+
+> with(planets, tapply(pl_orblper, list(st_spstr), mean, na.rm=TRUE))
+                A           A1 IV-V              A2 V                A5              A5 V 
+              NaN               NaN               NaN               NaN          -8.00000 
+             A7 V                A8            A8 III              A8 V                 B 
+              NaN               NaN               NaN               NaN               NaN 
+            B9 IV              B9 V            B9 Vne           B9.5-A0          Be9.5/AO 
+              NaN               NaN               NaN          90.00000               NaN 
+                F               F V             F0 IV              F1 V                F2 
+        341.88000          90.00000          87.00000               NaN               NaN 
+             F3 V                F4              F4 V                F5             F5 IV 
+              NaN           0.00000               NaN         117.13333               NaN 
+             F5 V                F6             F6 IV           F6 IV-V           F6 IV/V 
+         51.42500           0.00000          53.70000               NaN         272.00000 
+             F6 V                F7              F7 V                F8             F8 IV 
+        -25.40000          76.00000         193.71300          97.52545               NaN 
+          F8 IV/V              F8 V           F8/G0 V                F9             F9 IV 
+         45.00000         212.42724         308.00000         259.00000               NaN 
+          F9 IV/V              F9 V                 G               G V                G0 
+         22.92000         137.94333         141.66667               NaN         159.88030 
+            G0 IV           G0 IV-V              G0 V             G0 VI            G0/1 V 
+        189.96000               NaN         156.75213               NaN               NaN 
+           G0/2 V                G1          G1-1.5 V             G1 IV           G1 IV/V 
+         35.00000         -25.00000         269.60000         288.50000         301.00000 
+             G1 V            G1.5 V                G2             G2 IV              G2 V 
+        172.11923         -26.08500         183.20000         324.30000         130.39521 
+          G2.5 IV            G2.5 V           G2/3 IV            G2/3 V             G2/G3 
+         58.00000               NaN          65.09200         209.05000               NaN 
+       G2/G3 IV/V           G2/G3 V                G3            G3 III             G3 IV 
+              NaN         254.55000         233.00000         165.00000          60.00800 
+          G3 IV-V              G3 V           G3 V/IV            G3/5 V           G3/G5 V 
+        122.64200         148.52529               NaN         193.50000         198.53667 
+               G4             G4 IV              G4 V                G5            G5 III 
+        192.64500         101.40000          67.35000         166.42410         116.50000 
+        G5 III/IV             G5 IV           G5 IV/V              G5 V                G6 
+          2.10000         162.05000         137.47433         167.94500         101.00000 
+           G6 III             G6 IV              G6 V                G7            G7 III 
+        166.10000         135.00000         188.56140               NaN         117.00000 
+          G7 IV/V              G7 V                G8            G8 III         G8 III/IV 
+        143.00000          74.92000         124.06667          66.00000         351.50000 
+            G8 IV       G8 IV (+ G)           G8 IV/V              G8 V           G8/9 IV 
+        120.27900         187.03000         178.30425         105.92510         126.00000 
+            G8/K0          G8/K0 IV           G8/K0 V                G9            G9 III 
+        227.70000         139.00000               NaN               NaN         104.46667 
+            G9 IV              G9 V             G9/K0                 K               K V 
+              NaN          20.55286         160.00000          70.15000          56.00000 
+               K0            K0 III         K0 III-IV         K0 III/IV             K0 IV 
+        100.42365         180.59091         165.60000         284.66667         138.94000 
+          K0 IV-V           K0 IV/V              K0 V            K0.5 V  K0/1 V + G (III) 
+        202.30000        -106.00000         107.38514          56.47333               NaN 
+               K1            K1 III           K1 IIIb    K1 IIIb Fe-0.5             K1 IV 
+        285.96000         172.64071          89.16000         206.70000         157.32500 
+          K1 IV-V              K1 V           K1 V(P)          K1.5 III          K1/2 III 
+        114.00000         187.52000               NaN         218.70000         216.00000 
+           K1/2 V           K1/K2 V                K2             K2 II            K2 III 
+              NaN          97.00000         120.00000         126.02000         170.76000 
+        K2 III/IV             K2 IV              K2 V            K2.5 V              K2/4 
+        293.90000               NaN          73.56417         259.50000               NaN 
+               K3            K3 III             K3 IV              K3 V            K3.5 V 
+        115.00000         232.53000          -4.30000         122.90842          65.40000 
+          K3/4 IV                K4            K4 III              K4 V              K4.5 
+              NaN         121.23333         219.32667          85.00167          98.00000 
+           K4.5 V                K5            K5 III              K5 V              K5.5 
+              NaN         140.00000         163.89000          95.22750          12.66667 
+              K5e                K6              K6 V                K7              K7 V 
+              NaN               NaN               NaN         121.00000         160.27167 
+           K7.5 V           K7/M0 V             K7e V              K9 V              L1.5 
+              NaN          20.50000               NaN         177.00000          36.30000 
+                M               M V    M(6.1+/-0.7) V                M0              M0 V 
+        230.00000               NaN               NaN          30.79750         161.72500 
+             M0.0            M0.0 V M0.0&plusmn;0.5 V              M0.5            M0.5 V 
+         71.81333         204.30000           0.00000         352.00000         150.00000 
+               M1            M1 III              M1 V             M1 VE            M1.0 V 
+        114.28857         278.00000         288.70000               NaN               NaN 
+             M1.5            M1.5 V              M1.9           M1/M2 V                M2 
+        128.00000         119.91111               NaN         160.00000         341.34000 
+           M2 III              M2 V              M2.5            M2.5 V             M2.5e 
+              NaN         105.68750          89.77333         191.71667           6.24000 
+               M3              M3 V              M3.0            M3.0 V              M3.3 
+       -139.00000         287.40000               NaN          33.00000           0.00000 
+             M3.5            M3.5 V                M4              M4 V              M4.0 
+              NaN         177.14286         173.42667         124.00000         216.83000 
+           M4.0 V              M4.5            M4.5 V                M5            M5.5 V 
+        225.00000          62.00000         282.00000               NaN         165.09800 
+               M6                M7            M7.0 V             M7.25              M7.5 
+              NaN               NaN         181.50000               NaN               NaN 
+               M8              M8.5                M9              sdBV              T8.5 
+              NaN         223.00000               NaN               NaN               NaN 
+               WD 
+        -34.00000 
+
+> with(planets, tapply(pl_orblper, list(st_spstr), mean, na.rm=TRUE))
+                A           A1 IV-V              A2 V                A5              A5 V 
+              NaN               NaN               NaN               NaN          -8.00000 
+             A7 V                A8            A8 III              A8 V                 B 
+              NaN               NaN               NaN               NaN               NaN 
+            B9 IV              B9 V            B9 Vne           B9.5-A0          Be9.5/AO 
+              NaN               NaN               NaN          90.00000               NaN 
+                F               F V             F0 IV              F1 V                F2 
+        341.88000          90.00000          87.00000               NaN               NaN 
+             F3 V                F4              F4 V                F5             F5 IV 
+              NaN           0.00000               NaN         117.13333               NaN 
+             F5 V                F6             F6 IV           F6 IV-V           F6 IV/V 
+         51.42500           0.00000          53.70000               NaN         272.00000 
+             F6 V                F7              F7 V                F8             F8 IV 
+        -25.40000          76.00000         193.71300          97.52545               NaN 
+          F8 IV/V              F8 V           F8/G0 V                F9             F9 IV 
+         45.00000         212.42724         308.00000         259.00000               NaN 
+          F9 IV/V              F9 V                 G               G V                G0 
+         22.92000         137.94333         141.66667               NaN         159.88030 
+            G0 IV           G0 IV-V              G0 V             G0 VI            G0/1 V 
+        189.96000               NaN         156.75213               NaN               NaN 
+           G0/2 V                G1          G1-1.5 V             G1 IV           G1 IV/V 
+         35.00000         -25.00000         269.60000         288.50000         301.00000 
+             G1 V            G1.5 V                G2             G2 IV              G2 V 
+        172.11923         -26.08500         183.20000         324.30000         130.39521 
+          G2.5 IV            G2.5 V           G2/3 IV            G2/3 V             G2/G3 
+         58.00000               NaN          65.09200         209.05000               NaN 
+       G2/G3 IV/V           G2/G3 V                G3            G3 III             G3 IV 
+              NaN         254.55000         233.00000         165.00000          60.00800 
+          G3 IV-V              G3 V           G3 V/IV            G3/5 V           G3/G5 V 
+        122.64200         148.52529               NaN         193.50000         198.53667 
+               G4             G4 IV              G4 V                G5            G5 III 
+        192.64500         101.40000          67.35000         166.42410         116.50000 
+        G5 III/IV             G5 IV           G5 IV/V              G5 V                G6 
+          2.10000         162.05000         137.47433         167.94500         101.00000 
+           G6 III             G6 IV              G6 V                G7            G7 III 
+        166.10000         135.00000         188.56140               NaN         117.00000 
+          G7 IV/V              G7 V                G8            G8 III         G8 III/IV 
+        143.00000          74.92000         124.06667          66.00000         351.50000 
+            G8 IV       G8 IV (+ G)           G8 IV/V              G8 V           G8/9 IV 
+        120.27900         187.03000         178.30425         105.92510         126.00000 
+            G8/K0          G8/K0 IV           G8/K0 V                G9            G9 III 
+        227.70000         139.00000               NaN               NaN         104.46667 
+            G9 IV              G9 V             G9/K0                 K               K V 
+              NaN          20.55286         160.00000          70.15000          56.00000 
+               K0            K0 III         K0 III-IV         K0 III/IV             K0 IV 
+        100.42365         180.59091         165.60000         284.66667         138.94000 
+          K0 IV-V           K0 IV/V              K0 V            K0.5 V  K0/1 V + G (III) 
+        202.30000        -106.00000         107.38514          56.47333               NaN 
+               K1            K1 III           K1 IIIb    K1 IIIb Fe-0.5             K1 IV 
+        285.96000         172.64071          89.16000         206.70000         157.32500 
+          K1 IV-V              K1 V           K1 V(P)          K1.5 III          K1/2 III 
+        114.00000         187.52000               NaN         218.70000         216.00000 
+           K1/2 V           K1/K2 V                K2             K2 II            K2 III 
+              NaN          97.00000         120.00000         126.02000         170.76000 
+        K2 III/IV             K2 IV              K2 V            K2.5 V              K2/4 
+        293.90000               NaN          73.56417         259.50000               NaN 
+               K3            K3 III             K3 IV              K3 V            K3.5 V 
+        115.00000         232.53000          -4.30000         122.90842          65.40000 
+          K3/4 IV                K4            K4 III              K4 V              K4.5 
+              NaN         121.23333         219.32667          85.00167          98.00000 
+           K4.5 V                K5            K5 III              K5 V              K5.5 
+              NaN         140.00000         163.89000          95.22750          12.66667 
+              K5e                K6              K6 V                K7              K7 V 
+              NaN               NaN               NaN         121.00000         160.27167 
+           K7.5 V           K7/M0 V             K7e V              K9 V              L1.5 
+              NaN          20.50000               NaN         177.00000          36.30000 
+                M               M V    M(6.1+/-0.7) V                M0              M0 V 
+        230.00000               NaN               NaN          30.79750         161.72500 
+             M0.0            M0.0 V M0.0&plusmn;0.5 V              M0.5            M0.5 V 
+         71.81333         204.30000           0.00000         352.00000         150.00000 
+               M1            M1 III              M1 V             M1 VE            M1.0 V 
+        114.28857         278.00000         288.70000               NaN               NaN 
+             M1.5            M1.5 V              M1.9           M1/M2 V                M2 
+        128.00000         119.91111               NaN         160.00000         341.34000 
+           M2 III              M2 V              M2.5            M2.5 V             M2.5e 
+              NaN         105.68750          89.77333         191.71667           6.24000 
+               M3              M3 V              M3.0            M3.0 V              M3.3 
+       -139.00000         287.40000               NaN          33.00000           0.00000 
+             M3.5            M3.5 V                M4              M4 V              M4.0 
+              NaN         177.14286         173.42667         124.00000         216.83000 
+           M4.0 V              M4.5            M4.5 V                M5            M5.5 V 
+        225.00000          62.00000         282.00000               NaN         165.09800 
+               M6                M7            M7.0 V             M7.25              M7.5 
+              NaN               NaN         181.50000               NaN               NaN 
+               M8              M8.5                M9              sdBV              T8.5 
+              NaN         223.00000               NaN               NaN               NaN 
+               WD 
+        -34.00000 
+

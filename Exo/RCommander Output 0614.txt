@@ -1,0 +1,19 @@
+
+> with(planets, Dotplot(gaia_dist, bin=FALSE))
+
+> with(planets, Dotplot(gaia_gmag, bin=FALSE))
+
+> with(planets, Dotplot(pl_angsep, bin=FALSE))
+
+> with(planets, Dotplot(gaia_dist, bin=FALSE))
+
+> with(planets, Dotplot(gaia_dist, by=st_spstr, bin=FALSE))
+
+> with(planets, Dotplot(gaia_gmag, by=st_spstr, bin=FALSE))
+
+> with(planets, Hist(gaia_gmag, scale="frequency", breaks="Sturges", col="darkgray"))
+
+> with(planets, Hist(pl_angsep, scale="frequency", breaks="Sturges", col="darkgray"))
+
+> test <- with(planets, Hist(pl_angsep, scale="frequency", breaks="Sturges", col="darkgray"))
+

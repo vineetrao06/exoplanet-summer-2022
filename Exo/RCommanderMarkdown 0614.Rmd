@@ -1,0 +1,131 @@
+<!-- R Commander Markdown Template -->
+
+Replace with Main Title
+=======================
+
+### Your Name
+
+### `r as.character(Sys.Date())`
+
+```{r echo=FALSE}
+# include this code chunk as-is to set options
+knitr::opts_chunk$set(comment=NA, prompt=TRUE, out.width=750, fig.height=8, fig.width=8)
+library(Rcmdr)
+library(car)
+library(RcmdrMisc)
+```
+
+
+```{r echo=FALSE}
+# include this code chunk as-is to enable 3D graphs
+library(rgl)
+knitr::knit_hooks$set(webgl = hook_webgl)
+```
+
+
+```{r}
+exo <- 
+  readXL("C:/Users/Robert/Temp/STEM/ASDRP/Exoplanet/planets_2019.06.06_15.41.16.xlsx",
+   rownames=FALSE, header=TRUE, na="", sheet="planets_2019.06.06_15.41.16", 
+  stringsAsFactors=TRUE)
+```
+
+```{r}
+exo <- 
+  
+  readXL("C:/Users/Robert/Temp/STEM/ASDRP/Exoplanet/planets_2019.06.06_15.41.16.xlsx",
+  
+   rownames=FALSE, header=TRUE, na="", sheet="planets_2019.06.06_15.41.16", 
+  stringsAsFactors=TRUE)
+```
+
+
+```{r}
+summary(exo)
+```
+
+
+```{r}
+with(exo, Hist(gaia_dist, scale="frequency", breaks="Sturges", 
+  col="darkgray"))
+```
+
+```{r}
+with(exo, Dotplot(gaia_gmag, bin=FALSE))
+```
+
+```{r}
+with(exo, Dotplot(pl_bmasse, bin=FALSE))
+```
+
+```{r}
+with(exo, Hist(pl_bmasse, scale="frequency", breaks="Sturges", 
+  col="darkgray"))
+```
+
+```{r}
+densityPlot( ~ pl_bmasse, data=exo, bw=bw.SJ, adjust=1, kernel=dnorm, 
+  method="adaptive")
+```
+
+```{r}
+library(mvtnorm, pos=16)
+```
+
+
+```{r}
+library(survival, pos=16)
+```
+
+
+```{r}
+library(MASS, pos=16)
+```
+
+
+```{r}
+library(TH.data, pos=16)
+```
+
+
+```{r}
+library(multcomp, pos=16)
+```
+
+
+```{r}
+library(abind, pos=21)
+```
+
+
+```{r}
+AnovaModel.1 <- aov(gaia_gmag ~ st_spstr, data=exo)
+summary(AnovaModel.1)
+with(exo, numSummary(gaia_gmag, groups=st_spstr, statistics=c("mean", 
+  "sd")))
+```
+
+```{r}
+with(exo, tapply(gaia_gmag, st_optband,  var, na.rm=TRUE))
+var.test(gaia_gmag ~ st_optband, alternative='two.sided', conf.level=.95, 
+  data=exo)
+```
+
+```{r}
+library(tcltk, pos=22)
+```
+
+
+```{r}
+library(aplpack, pos=22)
+```
+
+
+```{r}
+with(exo, stem.leaf(gaia_gmag, na.rm=TRUE))
+```
+
+```{r}
+with(exo, plotMeans(gaia_gmag, st_spstr, error.bars="se", connect=TRUE))
+```
+

@@ -1,0 +1,23 @@
+w = LP - N 
+EA = MA + e * sin(MA) * (1 + e * cos(MA)) 
+x = a * (cos(EA) - e) 
+y = a * sin(EA) * (1 - e^2)^0.5 
+r = (x^2 + y^2)^0.5 
+v = atan2(y , x) 
+where 
+a - Semi-Major Axis 
+e - Eccentricity 
+i - Inclination 
+ML - Mean Anomaly 
+LP - Longitude of the Perihelion 
+N - Longitude of the Ascending Node 
+w - Argument of the Perihelion 
+EA -= Eccentric Anomaly 
+r - Radius of the Sun to the Planet 
+v - True Anomaly
+
+Source https://www.physicsforums.com/threads/keplerian-orbital-mechanics.348504/
+
+M = E − e sin E
+
+Source https://www.physicsforums.com/threads/keplerian-orbital-mechanics.348504/
