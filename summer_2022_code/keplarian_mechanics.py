@@ -12,7 +12,7 @@ http://arxiv.org/abs/1404.5292
 http://depts.washington.edu/naivpl/sites/default/files/hz_0.shtml#overlay-context=content/hz-calculator
 """
 
-data = pd.read_csv('exoFinal.csv', low_memory=False)
+data = pd.read_csv('Exoplanet-Elimination.csv', low_memory=False)
 
 columns = ['pl_name', 'habitable']
 
@@ -66,17 +66,33 @@ for i in range(0, len(data)):
             if(semiMinor>chzBounds[0] and semiMinor<chzBounds[1]):
                 print(current+" is within CHZ")
                 planets.append({'pl_name': current, 'habitable': 'yes'})
-            else:
-                print(current + " is not within CHZ")
-                planets.append({'pl_name': current, 'habitable': 'no'})
+            # else:
+            #     print(current + " is not within CHZ")
+            #     planets.append({'pl_name': current, 'habitable': 'no'})
         except:
             print(current+" missing too many values")
-            planets.append({'pl_name': current, 'habitable': 'no (missing values)'})
-    else:
-        print(current+" missing too many values")
-        planets.append({'pl_name': current, 'habitable': 'no (missing values)'})
+            # planets.append({'pl_name': current, 'habitable': 'no (missing values)'})
+    # else:
+    #     print(current+" missing too many values")
+    #     planets.append({'pl_name': current, 'habitable': 'no (missing values)'})
 
-with open('habitable.csv', 'w') as csvfile:
+# print(planets)
+
+def trim(dataset):
+    trim = lambda x: x.strip() if type(x) is str else x
+    print(type(dataset.applymap(trim)))
+    return dataset.applymap(trim)
+
+# newWriter = [trim(pd.read_csv('habitable-5.csv'))]
+# print(newWriter)
+
+with open('habitable-5.csv', 'w') as csvfile:
     writer = csv.DictWriter(csvfile, fieldnames = columns)
-    writer.writeheader()
+    # writer.writeheader()
+    # writer.writerow({'pl_name': 'Baked', 'habitable': 'Beans'})
+    # writer.writerow({'pl_name': 'Lovely', 'habitable': 'Spam'})
+    # writer.writerow({'pl_name': 'Wonderful', 'habitable': 'Spam'})
+    
     writer.writerows(planets)
+
+    

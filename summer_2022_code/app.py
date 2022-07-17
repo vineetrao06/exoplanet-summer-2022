@@ -26,14 +26,14 @@ class Dataset:
         self.df = self.df[self.df['pl_controv_flag'] != '1']
 
     def check_for_controv_flags_of_1(self):
-
+        pass
 
     # TODO: used supervised learning w/ control planet of k218b and k23d
     def keplarian_mechanics(self):
         pass
 
     def export_csv(self):
-        self.df.to_csv('Exoplanet-Elimination.csv')
+        self.df.to_csv(self.newSrc)
 
 if __name__ == "__main__":
     newDataset = Dataset(src='dataset.csv')
