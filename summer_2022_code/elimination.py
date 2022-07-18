@@ -1,7 +1,6 @@
 import pandas as pd
-import numpy as np
 
-df = pd.read_csv('dataset.csv', index_col=False)
+df = pd.read_csv('./data/dataset.csv', index_col=False)
 
 # Sorts all the values in the dataset by discovery year
 df.sort_values('disc_pubdate', ascending=True)
@@ -9,30 +8,9 @@ df.sort_values('disc_pubdate', ascending=True)
 # Removing all the duplicates with the same name and same date
 df = df.drop_duplicates(subset=["pl_name"], keep="last")
 
+df2 = df.loc[df['pl_controv_flag'] != 1]
 
-csv_header = list(df.columns.values)
-
-# Converts the DataFrame to numpy
-df_to_np = df.to_numpy()
-
-arr_length = len(df_to_np)
-
-# Iterates through the array and removes all values with a controversial flag of 1
-for i in range(0, arr_length):
-    if (i == arr_length):
-        break
-
-    pl_name = df_to_np[i][1]
-    pl_controv_flag = df_to_np[i][32]
-
-    if (pl_controv_flag == 1):
-        print(pl_name, "has a conversial flag of 1")
-        # print(df_to_np[i][32])
-        df_to_np = np.delete(df_to_np, i, axis=0)
-        arr_length -= 1
-
-# Converts the numpy array back into a panda DataFrame to be exported
-df = pd.DataFrame(df_to_np, columns=csv_header)
+df2.reset_index(drop=True, inplace=False)
 
 # Converts to csv and saves it in dataset "simplified-dataset.csv"
-df.to_csv('simplified-dataset.csv')
+df2.to_csv('./data/simplified-dataset.csv')
