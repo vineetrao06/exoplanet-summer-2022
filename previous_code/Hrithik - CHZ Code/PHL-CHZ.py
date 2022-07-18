@@ -26,6 +26,8 @@ exo['st_lum'] = exo['st_lum'] * (3.828*(10**26))
 for i in range (len(exo['sy_dist'])): 
     if pd.isna(exo['sy_dist'][i]) or exo['sy_dist'][i][0:1]=="[" or exo['sy_dist'][i][0:1]=="<" or exo['sy_dist'][i][0].isalpha():
         exo = exo.drop([i])
+
+        
 exo = exo.reset_index(drop = True)
 exo['sy_dist'] = pd.to_numeric(exo['sy_dist'])
 bolometric_luminosity = exo['st_lum']/(4*pi*exo['sy_dist']*exo['sy_dist'])
