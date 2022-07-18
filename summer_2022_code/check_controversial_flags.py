@@ -1,23 +1,11 @@
-# '''import csv
+import csv
+import pd
 
-# filename = 'dataset.csv'
-
-# rows_to_remove = list()
+filename = 'simplified-dataset.csv'
 
 
-with open(filename, 'r') as csvfile:
-    df = csv.reader(csvfile)
-    # print(df)
 
-    # Getting a list of all the rows to remove
-    for row in df:
-        pl_name = row[1]
-        controv_flag = row[32]
-        # print(row)
-        if (controv_flag == "1"):
-            print(pl_name + " has controversial flag of 1")
-            # Getting the row index value
-            rows_to_remove.append(row[0] - 1)
+    
 
 
 
@@ -63,4 +51,4 @@ with open(filename, 'r') as csvfile:
 
 
 
-df = df[df['Team'] != 'C']
+# df = df[df['Team'] != 'C']
