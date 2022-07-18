@@ -32,7 +32,7 @@ print(df_to_np[0][1])
 print("length: " + str(len(df_to_np)))
 arr_length = len(df_to_np)
 
-for i in range(0, arr_length ):
+for i in range(0, arr_length):
     if (i == arr_length):
         break
 
