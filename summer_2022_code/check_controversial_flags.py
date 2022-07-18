@@ -1,12 +1,6 @@
 import csv
-import pd
 
 filename = 'simplified-dataset.csv'
-
-
-
-    
-
 
 
 # '''
@@ -32,7 +26,6 @@ filename = 'simplified-dataset.csv'
 #              writer.writerow(row)
 
 
-
 # rows_to_remove = list()
 
 # with open('without-controv-flags.csv', 'r') as csvfile:
@@ -48,7 +41,6 @@ filename = 'simplified-dataset.csv'
 #             print(pl_name + " has controversial flag of 1")
 #             # Getting the row index value
 #             rows_to_remove.append(int(row[0]) - 1)
-
 
 
 # df = df[df['Team'] != 'C']
