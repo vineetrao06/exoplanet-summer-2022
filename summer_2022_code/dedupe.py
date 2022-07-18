@@ -44,13 +44,14 @@ for i in range(0, arr_length):
         # print(df_to_np[i][32])
         df_to_np = np.delete(df_to_np, i, axis=0)
         print("new length: " + str(len(df_to_np)))
-        arr_length -= 1
+        arr_length -= 1 
         print('arr_length: ' + str(arr_length))
 
 
 df = pd.DataFrame(df_to_np, columns = csv_header)
 
-df.to_csv('simplified-dataset.csv')
+# Converts to csv
+df.to_csv('simplified-dataset.csv') 
 
 
 
