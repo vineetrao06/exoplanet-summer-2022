@@ -1,5 +1,3 @@
-
-
 import pandas as pd
 
 df = pd.read_csv('../data/PHL_DataSet.csv')
