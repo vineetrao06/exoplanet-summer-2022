@@ -190,4 +190,3 @@ with open('habitable-planets.csv', 'w', newline='') as csvfile:
     for planet in planets:
         planet_count += 1
         writer.writerow({'number': planet_count, 'pl_name': planet})
-# df.to_csv('Complicated_CHZ.csv')
