@@ -12,11 +12,11 @@ np.sort(phl_planets)
 print(our_planets)
 print(phl_planets)
 
-stringVal = "HD"
-our_planets = [
-    our_planet for our_planet in our_planets if stringVal not in our_planet]
+# stringVal = "HD"
+# our_planets = [
+#     our_planet for our_planet in our_planets if stringVal not in our_planet]
 
-print(our_planets)
+# print(our_planets)
 
 num_similar_planets = 0
 
@@ -29,7 +29,7 @@ for our_planet in our_planets:
             num_similar_planets += 1
 
 print(num_similar_planets)
-print("Accuracy: " + str(pcnt_accuracy))
+print("Accuracy: " + str(num_similar_planets / len(our_planets)))
 
 
 # print(our_planets)
