@@ -57,9 +57,9 @@ df = df.loc[pd.notna(df['st_lum'])]
 df.reset_index(drop=True, inplace=True)
 
 # Creating a new column for absolute magnitude, based on the relation
-# between absolute magnitude and luminosity (see Wikipedia page)
+# between absolute magnitude and luminosity (see paper)
 
-df['st_abs_mag'] = 4.74 + (-2.5*np.log10(df['st_lum']))
+df['st_abs_mag'] = 4.83 + (-2.5*np.log10(df['st_lum']))
 
 df['st_spectype'] = df['st_spectype'].astype(str)
 
@@ -88,7 +88,6 @@ for i in range(0, len(df)):
 # Creating a new column for BOLOMETRIC luminosity, based on BOLOMETRIC Magnitude
 # (This is different from st_lum and st_abs_mag)
 # The bolometric luminosity must be used for the CHZ calculations
-# Once again, this formula can be found on Wikipedia
 
 df['bol_lum'] = 10**((df['bol_mag']-4.74)/-2.5)
 
@@ -126,7 +125,7 @@ for i in range(0, len(df)):
                 df['Habitable'][i] = 'No'
 
         # If the eccentricity is greater than 0.2, we must use a formula for
-        # the average distance. TODO: CITE SOURCE!! . and then check if this
+        # the average distance and then check if this
         # average distance is in the CHZ range
 
         else:
