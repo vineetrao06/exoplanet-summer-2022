@@ -126,7 +126,7 @@ for i in range(0, len(df)):
                 df['Habitable'][i] = 'No'
 
         # If the eccentricity is greater than 0.2, we must use a formula for
-        # the average distance. TODO: CITE SOURCE!! . and then check if this
+        # the average distance and then check if this
         # average distance is in the CHZ range
 
         else:
