@@ -59,7 +59,7 @@ df.reset_index(drop=True, inplace=True)
 # Creating a new column for absolute magnitude, based on the relation
 # between absolute magnitude and luminosity (see Wikipedia page)
 
-df['st_abs_mag'] = 4.74 + (-2.5*np.log10(df['st_lum']))
+df['st_abs_mag'] = 4.83 + (-2.5*np.log10(df['st_lum']))
 
 df['st_spectype'] = df['st_spectype'].astype(str)
 
