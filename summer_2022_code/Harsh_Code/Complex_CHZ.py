@@ -18,7 +18,7 @@ df = df.loc[df['pl_controv_flag'] != 1]
 
 df.reset_index(drop=True, inplace=True)
 
-df.sort_values('disc_pubdate', inplace = ascending=True)
+df.sort_values('disc_pubdate', ascending=True)
 
 df = df.drop_duplicates(subset=['pl_name'], keep='last')
 
