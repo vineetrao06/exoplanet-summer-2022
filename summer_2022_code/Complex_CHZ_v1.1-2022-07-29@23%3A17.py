@@ -22,7 +22,7 @@ df = df.loc[df['pl_controv_flag'] != 1]
 
 df.reset_index(drop = True, inplace = True)
 
-df.sort_values('disc_pubdate', ascending=True)
+df.sort_values('disc_pubdate', inplace=True, ascending=True)
 
 df = df.drop_duplicates(subset=['pl_name'],keep='last')
 
@@ -62,9 +62,9 @@ df=df.loc[pd.notna(df['st_lum'])]
 df.reset_index(drop=True,inplace = True)
 
 # Creating a new column for absolute magnitude, based on the relation
-# between absolute magnitude and luminosity (see Wikipedia page)
+# between absolute magnitude and luminosity (see paper)
 
-df['st_abs_mag'] = 4.74 + (-2.5*np.log10(df['st_lum']))
+df['st_abs_mag'] = 4.83 + (-2.5*np.log10(df['st_lum']))
 
 df['st_spectype']=df['st_spectype'].astype(str)
 
@@ -93,7 +93,6 @@ for i in range(0,len(df)):
 # Creating a new column for BOLOMETRIC luminosity, based on BOLOMETRIC Magnitude
 # (This is different from st_lum and st_abs_mag)
 # The bolometric luminosity must be used for the CHZ calculations
-# Once again, this formula can be found on Wikipedia
 
 df['bol_lum'] = 10**((df['bol_mag']-4.74)/-2.5)
 
