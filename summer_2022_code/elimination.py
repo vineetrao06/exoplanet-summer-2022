@@ -3,7 +3,7 @@ import pandas as pd
 df = pd.read_csv('./data/dataset.csv', index_col=False)
 
 # Sorts all the values in the dataset by discovery year
-df.sort_values('disc_pubdate', ascending=True)
+df.sort_values('disc_pubdate', inplace=True, ascending=True)
 
 # Removing all the duplicates with the same name and same date
 df = df.drop_duplicates(subset=["pl_name"], keep="last")
