@@ -14,13 +14,13 @@ import csv
 
 df = pd.read_csv('dataset.csv', low_memory=False)
 
-df.sort_values('disc_pubdate', ascending=True)
-
-df = df.drop_duplicates(subset=['pl_name'], keep='last')
+df = df.loc[df['pl_controv_flag'] != 1]
 
 df.reset_index(drop=True, inplace=True)
 
-df = df.loc[df['pl_controv_flag'] != 1]
+df.sort_values('disc_pubdate', inplace=True, ascending=True)
+
+df = df.drop_duplicates(subset=['pl_name'], keep='last')
 
 df.reset_index(drop=True, inplace=True)
 
