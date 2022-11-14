@@ -49,24 +49,12 @@ for i in range(0, len(df)):
     else:
         pass
 
-# Determining the number of unique exoplanets for later use in pie chart
-
-num_total = len(df)
-print('Total unique exoplanets: {num_tot}'.format(num_tot=num_total))
-
 # After the luminosity calculations have been performed,
 # planets with no values for their star's luminosity must be removed
 
 df = df.loc[pd.notna(df['st_lum'])]
 
 df.reset_index(drop=True, inplace=True)
-
-# Determining the number of exoplaneets that were missing host star luminosity values
-# Needed to determine total number of CND (see last couple lines)
-
-num_nolumo = num_total - len(df)
-
-print('Number of exoplanets with CND luminosity: {num}'.format(num=num_nolumo))
 
 # Creating a new column for absolute magnitude, based on the relation
 # between absolute magnitude and luminosity (see paper and/or references)
@@ -186,26 +174,6 @@ for i in range(0, len(df)):
 
     else:
         df['Habitable'][i] = 'CND'
-        
-# Determining the number of habitable, not habitable, and CND exoplanets
-# Need to take into account exoplanets whose host stars did not have luminosity values
-# When determining number of CND
-        
-num_habitable = len(df.loc[df['Habitable']=='Yes'])
-
-print(num_habitable)
-
-num_nothabitable = len(df.loc[df['Habitable']=='No'])
-
-print(num_nothabitable)
-
-num_cnd = len(df.loc[df['Habitable']=='CND']) + num_nolumo
-
-print(num_cnd)
-
-print(planets, len(planets))
-
-# CSV with just the habitable exoplanets
 
 with open('habitable-planets.csv', 'w', newline='') as csvfile:
     fieldnames = ['number', 'pl_name']
@@ -217,9 +185,3 @@ with open('habitable-planets.csv', 'w', newline='') as csvfile:
     for planet in planets:
         planet_count += 1
         writer.writerow({'number': planet_count, 'pl_name': planet})
-
-df = df.loc[df['Habitable']=='Yes']
-
-# CSV with the data of the habitable exoplanets
-
-df.to_csv('habitaable_data.csv')
