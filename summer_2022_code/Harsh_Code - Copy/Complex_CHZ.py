@@ -190,3 +190,45 @@ with open('habitable-planets.csv', 'w', newline='') as csvfile:
     for planet in planets:
         planet_count += 1
         writer.writerow({'number': planet_count, 'pl_name': planet})
+
+
+# quick comparison to PHL
+
+our_planets = pd.read_csv('../data/habitable_planets.csv')['pl_name'].to_numpy()
+phl_planets = pd.read_csv('../data/PHL-dataset-simplified.csv')['pl_name'].to_numpy()
+
+np.sort(our_planets)
+np.sort(phl_planets)
+
+
+# stringVal = "HD"
+# our_planets = [
+#     our_planet for our_planet in our_planets if stringVal not in our_planet]
+
+# print(our_planets)
+
+num_similar_planets = 0
+similar_planets = []
+
+# for our_planet in our_planets:
+#     our_planet = our_planet[:-2]
+
+for our_planet in our_planets:
+    for phl_planet in phl_planets:
+        if (our_planet == phl_planet):
+            num_similar_planets += 1
+            similar_planets.append(our_planet)
+
+print(num_similar_planets)
+print(similar_planets)
+
+phl_failed_planets = phl_planets
+
+# #TODO: PRINT ALL THE FAILED PLANETS
+
+# for phl_planet in phl_planets:
+#     for similar_planet in similar_planets:
+#         if (similar_planet == phl_planet):
+#             # phl_failed_planets.remove(phl_planets.index(phl_planet))
+#             index = np.where(phl_planets == phl_planet)[0]
+#             phl_failed_planets = np.delete(phl_failed_planets, index)
