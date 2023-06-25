@@ -14,6 +14,8 @@ import csv
 
 df = pd.read_csv('dataset.csv', low_memory=False)
 
+df_phl = pd.read_csv('PHL-dataset-simplified.csv', low_memory=False)
+
 df = df.loc[df['pl_controv_flag'] != 1]
 
 df.reset_index(drop=True, inplace=True)
@@ -137,6 +139,7 @@ for i in range(0, len(df)):
             else:
                 df['Habitable'][i] = 'No'
 
+
     # If there is no value for the planet's semi-major axis, but there are values
     # for its orbital period, eccentricity, and the star's mass, we can use
     # Kepler's 3rd Law to calculate its semi-major axis, and then perform
@@ -174,11 +177,9 @@ for i in range(0, len(df)):
 
     else:
         df['Habitable'][i] = 'CND'
+        # print(df['Habitable'])
 
-# print(planets, len(planets))
-
-for planet in planets:
-    print(planet)
+df.to_csv('dataset.csv')
 
 with open('habitable-planets.csv', 'w', newline='') as csvfile:
     fieldnames = ['number', 'pl_name']
@@ -191,44 +192,30 @@ with open('habitable-planets.csv', 'w', newline='') as csvfile:
         planet_count += 1
         writer.writerow({'number': planet_count, 'pl_name': planet})
 
-
-# quick comparison to PHL
-
-our_planets = pd.read_csv('../data/habitable_planets.csv')['pl_name'].to_numpy()
-phl_planets = pd.read_csv('../data/PHL-dataset-simplified.csv')['pl_name'].to_numpy()
-
-np.sort(our_planets)
-np.sort(phl_planets)
+habitable_col = df['Habitable']
+# for planet_data in habiitable_col:
+#     if planet_data['Habitable ']
 
 
-# stringVal = "HD"
-# our_planets = [
-#     our_planet for our_planet in our_planets if stringVal not in our_planet]
+# habitable_col = df['Habitable']
+# for indication in habitable_col:
+#     i = 0
+#     if (indication == "CND"):
+#         print(df['pl_name'][i])
 
-# print(our_planets)
+#     i += 1
 
-num_similar_planets = 0
-similar_planets = []
+phl_list = df_phl['pl_name']
 
-# for our_planet in our_planets:
-#     our_planet = our_planet[:-2]
+for i in range(0, len(habitable_col)):
+    indication = habitable_col[i]
+    planet_name = df['pl_name'][i]
 
-for our_planet in our_planets:
-    for phl_planet in phl_planets:
-        if (our_planet == phl_planet):
-            num_similar_planets += 1
-            similar_planets.append(our_planet)
+    if (indication == "CND"):
+        for j in range (0, len(phl_list)):
+            phl_planet_name = df_phl['pl_name'][j]
 
-print(num_similar_planets)
-print(similar_planets)
+            if (planet_name == phl_planet_name):
+                print(planet_name)
 
-phl_failed_planets = phl_planets
-
-# #TODO: PRINT ALL THE FAILED PLANETS
-
-# for phl_planet in phl_planets:
-#     for similar_planet in similar_planets:
-#         if (similar_planet == phl_planet):
-#             # phl_failed_planets.remove(phl_planets.index(phl_planet))
-#             index = np.where(phl_planets == phl_planet)[0]
-#             phl_failed_planets = np.delete(phl_failed_planets, index)
+        
